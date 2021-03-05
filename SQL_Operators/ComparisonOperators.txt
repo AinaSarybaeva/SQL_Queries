@@ -1,0 +1,67 @@
+select *
+from salaries;
+
+--Using COMPARISON OPERATOR
+
+--Query emp_no for those employees making less than 
+--or equal to 78000 from salaries tables
+select emp_no
+from salaries
+where salary <= 78000;
+
+-- Query emp_no and salary for those employees making more than 
+--or equal to 81000 from salaries tables
+select emp_no, salary
+from salaries
+where salary >= 81000;
+
+
+--BETWEEN Operaton will return the records where the exprassion is within 
+--the range of value 1 and value 2
+
+--Query from date, emp_no, salary for those employees 
+--who worked between 1987-01-01 until 1994-01-01
+select from_date, emp_no, salary
+from salaries
+where to_date between '1987-01-01' and '1994-01-01';
+
+select from_date, emp_no, salary, to_date
+from salaries
+where from_date >= '1987-01-01' and to_date <= '1994-01-01';
+
+--Sample:
+select * 
+from employees;
+
+select *
+from employees
+where first_name between 'Christian' and 'Ramzi';
+
+---IN Operator
+--Query emp_no, first name from employees for those employees whos emp_no in 10050, 10115,10112
+select emp_no, first_name
+from employees
+where emp_no in (10050, 10115, 10112);
+
+--Example:
+select * from dept_emp;--Fetch all result for those employees who belong to dept_no 'd006','d003'
+--from dept_table
+select *
+from dept_emp
+where dept_no in ('d006','d003');
+
+
+--LIKE OPERATOR: % and _
+select * from employees;
+
+--Query first_name for all those employees whose name contains ne from employees table
+select first_name
+from employees
+where first_name like '%ne%';
+
+--Query all the results from employees where name is anel
+select *
+from employees
+where first_name like '_anel';
+
+
