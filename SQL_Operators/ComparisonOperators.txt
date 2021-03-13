@@ -1,3 +1,217 @@
+demoHR
+
+select * from employees;
+select * from departments;
+select * from dept_emp;
+select * from titles;
+select * from salaries;
+select * from dept_manager;
+
+select first_name,last_name from employees;
+select first_name, gender from employees;
+select dept_name from departments;
+select emp_no, dept_no from dept_emp;
+select * from dept_manager;
+select salary, from_date, to_date from salaries;
+select * from titles;
+
+select * 
+from employees
+where last_name = 'Peac';
+
+select title
+from titles
+where emp_no = '10123';
+
+select emp_no, title
+from titles
+where title = 'Staff';
+
+select emp_no, first_name
+from employees
+where gender = 'F';
+
+select *
+from employees
+where first_name = 'Mary';
+
+select salary 
+from salaries 
+where salary > 40000;
+
+select salary, from_date, to_date 
+from salaries;
+
+select * 
+from titles;
+
+select distinct gender
+from employees;
+
+select distinct dept_no
+from dept_manager;
+
+select *
+from employees
+where first_name = 'Berni'
+and birth_date = '1956-02-12';
+
+select birth_date
+from employees
+where first_name = 'Hugo'
+and last_name = 'Rosis'
+and emp_no = '10111';
+
+
+select gender
+from employees
+where first_name = 'Berni'
+and last_name = 'Genin'
+and hire_date = '1987-03-11';
+
+select * 
+from titles
+where emp_no = '10007'
+or title = 'Staff';
+
+--Query first name of employee whos last name is Peac and employee number 29215
+select first_name
+from employees
+where last_name = 'Peac'
+and emp_no = '29215';
+
+--Query department name for department number d007
+select dept_name
+from departments
+where dept_no = 'd007';
+
+--Fetch the birth datefor Shin Zyda
+select birth_date
+from employees
+where first_name = 'Shin'
+and last_name = 'Zyda';
+
+------Query date of birth for Gao Dolinsky
+
+select birth_date
+from employees
+where first_name = 'Gao'
+and last_name = 'Dolinsky';
+
+------Query all female employee numbers from employees table hired on 1991-12-01 
+select emp_no
+from employees
+where gender = 'F'
+and hire_date = '1991-12-01';
+
+------Fetch employees number for those employees with a salary of 74333
+select emp_no
+from salaries
+where salary = '74333'
+
+------Query the title for employee number 651 and hired on 1996-12-25 from titles table
+select title
+from titles
+where emp_no = '10446' ----was wrong emp_no, 651-the order number 
+and from_date = '1996-12-25';
+
+-----Fetch the employee number for all employees whose title is Senior Engineer 
+select emp_no
+from titles
+where title = 'Senior Engineer';
+
+-----Query the deptament number from departments for marketing and Research
+select dept_no
+from departments
+where dept_name = 'Marketing'
+or dept_name = 'Research';
+
+-----Fetch the department number for employee numbers 110725 and 111035
+select dept_no
+from dept_emp
+where emp_no = '11725' ---- there is no 110725 number (11725)
+or emp_no = '11035'; ------there is no number 111035 (11035)
+
+-----Query date of birth for Willard or Fai
+select birth_date
+from employees
+where first_name = 'Willard'
+or first_name = 'Fai';
+
+--select first_name
+--from employees
+--where first_name = 'Willard';
+
+--Query first last and employee number for those employees hired on 1993-05-20 or 1996-04-18
+select first_name, last_name, emp_no
+from employees
+where hire_date = '1993-05-20'
+or hire_date = '1996-04-18';
+
+--Sorting ASC or DESC
+
+--Query all the results for employees table where first name in descending order
+select *
+from employees
+order by first_name desc;
+
+--Query gender and first name for those employees order by index 2
+select gender, first_name
+from employees
+order by 2;
+
+
+--AVG, MAX, MIN, SUM
+
+select *
+from salaries;
+
+select avg(salary) Average_Salary -- creating alias Average_Salary
+from salaries;
+
+
+select max(salary) Highest_Paid
+from salaries;
+
+select min(salary) poor_salary
+from salaries;
+
+select sum(salary) Rich_salary
+from salaries;
+
+select * 
+from salaries
+order by salary desc;
+
+
+---COUNT FUNCTIONS
+
+--Query the count for employees in employees table
+Select *
+from employees;
+
+select count(*)
+from employees;
+
+---QUERY  count for non duplicate dept_no department number
+--from dept_emp table print emp_no and from_table
+select count(distinct dept_no) 
+from emp_no, from_date;
+
+--Query count of Gender from employees table
+select count(gender)
+from employees;
+
+--Query the non duplicate count of gender in employees table
+select count(distinct gender)
+from employees;
+
+
+
+
+
+
+
 select *
 from salaries;
 
@@ -122,6 +336,9 @@ from employees;
 --Query the non duplicate count of gender in employees table
 select count(distinct gender)
 from employees;
+
+
+
 
 
 
