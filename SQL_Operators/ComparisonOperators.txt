@@ -341,6 +341,188 @@ from employees;
 
 
 
+ ------DVD Rental
+------Group by clause rules
+select *
+from payment;
+
+select staff_id,  sum(amount), count(amount)
+from payment
+group by staff_id;
+
+select *
+from payment
+where staff_id >= 3;
+
+
+----DVD Rental
+----Query the count for staff_id table payment 1=7292, 2=7304
+select count(staff_id)
+from payment
+where staff_id = 2;
+
+
+
+--DEMOHR
+----GROUP BY FUNCTIONS
+
+select staff_id, rental_id, sum(amount), count(amount)
+from payment
+group by staff_id;
+
+
+select staff_id , sum(amount), count(amount) alias total
+from payment
+group by staff_id;
+
+select staff_id, sum(amount). count(amount)
+from payment
+group by staff_id;
+
+
+
+-----Query the count from titles deparments for all staff employees
+select *
+from titles;
+
+
+select title, count(title)
+from titles
+group by title;
+
+
+----Query the count from titles tables for all staff employees also print title
+select *
+from titles;
+
+select title, count(title) 
+from titles
+where  title = 'Staff'
+group by title;
+
+
+
+----Query the count from titles tables for all staff employees also print title
+select *
+from titles;
+
+select title, count(title) 
+from titles
+where  title = 'Staff'
+group by title;
+
+----Query full name "first_name, last_name" for employees table named emp_no to "employee_Number" and order by first_name
+select *
+from employees;
+
+select first_name, last_name, emp_no employee_number
+from employees
+order by first_name desc;   ---from the end  (descending order)
+
+
+
+---DVD Rental
+--Fetch the count of all the movie titles and thier ratings in ascending order
+select *
+from film;
+
+select rating , count(title) as title --- not to see the column name - count we put AS and change it to - title
+from film
+group by rating
+order by rating asc;
+
+select count(title) --return the numeric count of that movies
+from film
+where title = 'Basic Easy';
+
+----Query the store_id to find out which store served he most customers
+--get the total count for those who served more than 275
+select *
+from customer;
+
+select store_id, count(customer_id)
+from customer
+group by store_id ---GROUP BY FUNCTION - it divides the rows in a table into smaller groups
+having count(customer_id) > 275;
+
+
+
+---DEMOHR
+--GROUP BY FUCTION &HAVING CLAUSE
+
+---Query the list of emp_no whose salary is 150000 or more
+select *
+from salaries;
+
+select emp_no, max(salary)
+from salaries
+group by emp_no
+having max(salary) >= 150000;---DEMOHR
+--GROUP BY FUCTION &HAVING CLAUSE
+
+---Query the list of emp_no whose salary is 150000 or more
+select *
+from salaries;
+
+select emp_no, max(salary)
+from salaries
+group by emp_no
+having max(salary) >= 150000;--HAVING -condition 
+
+
+---DVD Rental
+---Query rating  and rental rate from film table for rating R, G, PG, PG-13 having the rating rate less than 3
+select * from film;
+
+select rating, rental_rate
+from film
+where rating in ('R', 'G', 'PG', 'PG-13')
+group by rating, rental_rate
+having rental_rate < 3;
+
+
+----DVD Rental
+----INNER JOIN
+
+----Query title and description for films and their respective store_id from inventory
+select *
+from inventory;  
+
+select *
+from film;
+
+select film.title, film.description, inventory.store_id ----specify hte name of the table from what table
+from film
+inner join inventory
+on film.film_id = inventory.film_id; 
+
+
+-----ALIAS table name for INNER JOIN
+select f.title, f.description, i.store_id ----specify hte name of the table from what table
+from film f
+inner join inventory i
+on f.film_id = i.film_id; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
