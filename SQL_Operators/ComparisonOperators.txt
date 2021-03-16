@@ -506,8 +506,79 @@ on f.film_id = i.film_id;
 
 
 
+-- DVD rental
+-- LEFT JOIN (total record 4623)
+SELECT f.title, f.description, i.store_id
+FROM film f
+LEFT JOIN inventory i
+ON f.film_id = i.film_id;
+-- DVD rental
+-- RIGHT JOIN (total record 4581)
+SELECT f.title, f.description, i.store_id
+FROM film f
+RIGHT JOIN inventory i
+ON f.film_id = i.film_id;
+-- DVD rental
+-- FULL JOIN (total record 4623)
+SELECT f.title, f.description, i.store_id
+FROM film f
+FULL JOIN inventory i
+ON f.film_id = i.film_id;
 
 
+------INNER JOIN
+----Query fruit_a
+select * 
+from basket_a;
+
+select *
+from basket_b;
+
+
+-- INNER JOIN
+-- Query fruit_a and fruit b from basket a and basket b 
+SELECT ba.a, ba.fruit_a, bb.b, bb.fruit_b
+FROM basket_a ba
+INNER JOIN basket_b bb
+ON ba.fruit_a = bb.fruit_b;
+
+-- When we execute inner join it examin each row in the first table (basket_a)
+-- It compares fruit_a == fruit_b
+-- If the values are equal it returns a new row that contains columns from both tables.
+
+
+-- LEFT JOIN 
+
+
+-- LEFT JOIN performs a join starting with the first (left-most) 
+-- table and then any matching second (right-most) table records.
+
+SELECT ba.a, ba.fruit_a, bb.b, bb.fruit_b
+FROM basket_a ba 
+LEFT JOIN basket_b bb
+ON ba.fruit_a = bb.fruit_b;
+
+
+-- RIGHT JOIN: The right join start selecting data from the right table,
+-- It compares each value in fruit_b column with fruit_a column 
+SELECT ba.a, ba.fruit_a, bb.b, bb.fruit_b
+FROM basket_a ba 
+RIGHT JOIN basket_b bb
+ON ba.fruit_a = bb.fruit_b;
+
+
+-- FULL OUTER JOIN / FULL JOIN
+SELECT ba.a, ba.fruit_a, bb.b, bb.fruit_b
+FROM basket_a ba 
+FULL JOIN basket_b bb
+ON ba.fruit_a = bb.fruit_b;
+
+
+
+-------Union operator combines result stes of two or more SELECT statements into a single esult set
+-------The Union operator removes all duplicate rows from the combined data set. To retain the duplicate rows, you use the Union All instead.
+-------Union: only keeps unique records
+-------Union All: keeps all records, including duplicates
 
 
 
