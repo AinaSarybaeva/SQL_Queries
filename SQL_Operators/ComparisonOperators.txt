@@ -512,12 +512,16 @@ SELECT f.title, f.description, i.store_id
 FROM film f
 LEFT JOIN inventory i
 ON f.film_id = i.film_id;
+
+
 -- DVD rental
 -- RIGHT JOIN (total record 4581)
 SELECT f.title, f.description, i.store_id
 FROM film f
 RIGHT JOIN inventory i
 ON f.film_id = i.film_id;
+
+
 -- DVD rental
 -- FULL JOIN (total record 4623)
 SELECT f.title, f.description, i.store_id
@@ -546,8 +550,6 @@ ON ba.fruit_a = bb.fruit_b;
 -- It compares fruit_a == fruit_b
 -- If the values are equal it returns a new row that contains columns from both tables.
 
-
--- LEFT JOIN 
 
 
 -- LEFT JOIN performs a join starting with the first (left-most) 
@@ -583,6 +585,63 @@ ON ba.fruit_a = bb.fruit_b;
 
 
 
+
+
+
+
+----JOINS 
+select *
+from most_popular_films;
+
+select *
+from top_rated_films;
+
+----UNION
+select *
+from top_rated_films
+UNION------------Removed all duplicates
+select * from most_popular_films;
+
+
+----UNION ALL
+select *
+from top_rated_films
+UNION ALL------------Print all records including duplicates
+select * from most_popular_films;
+
+
+
+----UNION ALL and order by title in desc / asc
+select *
+from top_rated_films
+UNION ALL------------Print all records including duplicates
+select * from most_popular_films
+order by  title asc;
+
+
+
+
+----DVD Rental
+
+select *
+from film;
+
+select *
+from film_actor;
+
+----UNION 6443
+select film_id, language_id
+from film
+UNION
+select actor_id,film_id
+from film_actor;
+
+----UNION ALL 6462
+select film_id, language_id
+from film
+UNION ALL
+select actor_id,film_id
+from film_actor;
 
 
 
